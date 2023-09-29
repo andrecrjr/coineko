@@ -14,10 +14,10 @@ const Menu = () => {
 
 	return (
 		<nav
-			className="w-full bg-purple-neko-500 overflow-x-scroll 
-			h-10 sm:h-10 flex content-center sm:justify-center sm:overflow-auto"
+			className="w-full bg-purple-neko-500 overflow-x-hidden overflow-y-hidden
+			h-auto sm:h-20 flex content-center sm:justify-center sm:overflow-hidden"
 		>
-			<ul className="list-none flex self-center ">
+			<ul className="list-none flex self-center items-center justify-between overflow-x-scroll overflow-y-hidden">
 				{MenuOptions.map((item, index) => {
 					let route = hostname + '/' + item.path;
 					if (item.path !== 'portfolio') {

@@ -7,7 +7,7 @@ import { CurrencyList } from '@/types';
 import { convertFilterQueryString, getMetadataName } from '@/utils';
 import { TableComposition } from '@/components/shared/Layout';
 import ErrorPage from '@/components/Page/ErrorPage';
-import { MenuOptions } from '@/components/Header/menu';
+import { MenuOptionsWithoutPortfolio } from '@/components/Header/menu';
 
 type Props = {
 	params: { categoryPages: string[] };
@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 // RATE LIMIT CAN'T MAKE IT EASY FOR US... SAD
 export async function generateStaticParams() {
-	const paths = MenuOptions.map(item => ({
+	const paths = MenuOptionsWithoutPortfolio.map(item => ({
 		categoryPages: [item.path]
 	}));
 	return paths;

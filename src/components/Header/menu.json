@@ -6,6 +6,23 @@
 		"path": "decentralized-finance-defi"
 	},
 	{ "alias": "Exchange", "path": "exchange-based-tokens" },
+	{ "alias": "Decentralized Exchange (DEX)", "path": "decentralized-exchange" },
+	{
+		"path": "gambling",
+		"alias": "Gambling"
+	},
+	{
+		"path": "privacy-coins",
+		"alias": "Privacy Coins"
+	},
+	{
+		"path": "meme-token",
+		"alias": "Meme Tokens"
+	},
+	{
+		"path": "play-to-earn",
+		"alias": "Play To Earn"
+	},
 	{
 		"alias": "Portfolio",
 		"path": "portfolio"
