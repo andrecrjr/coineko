@@ -7,6 +7,7 @@ import { CurrencyList } from '@/types';
 import { convertFilterQueryString, getMetadataName } from '@/utils';
 import { TableComposition } from '@/components/shared/Layout';
 import ErrorPage from '@/components/Page/ErrorPage';
+import { MenuOptions } from '@/components/Header/menu';
 
 type Props = {
 	params: { categoryPages: string[] };
@@ -19,22 +20,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	>('/coins/categories/list');
 
 	const titleSection = getMetadataName(metadata, params.categoryPages[0]);
-	const pageNumber = parseInt(params.categoryPages[1]);
-	const paginationTitle =
-		pageNumber > 1 ? ` - Page ${params.categoryPages[1]}` : '';
+	const pageNumber = parseInt(params.categoryPages[1] || '1');
+	const paginationTitle = pageNumber > 1 ? ` - Page ${pageNumber}` : '';
 	return {
 		title: titleSection?.name + paginationTitle
 	};
 }
 
+// RATE LIMIT CAN'T MAKE IT EASY FOR US... SAD
 export async function generateStaticParams() {
-	const data = await fetchService.getFetchData<
-		{
-			category_id: string;
-			name: string;
-		}[]
-	>('/coins/categories/list');
-	const paths = data.map(item => ({ categoryPages: [item.category_id] }));
+	const paths = MenuOptions.map(item => ({
+		categoryPages: [item.path]
+	}));
 	return paths;
 }
 
