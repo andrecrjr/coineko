@@ -12,25 +12,25 @@ export function PaginationTable() {
 		}`;
 	};
 	return (
-		<ul className="inline-flex gap-4 bg-purple-neko-300 justify-around z-10 sticky top-0 left-0 right-0">
+		<ul className="inline-flex gap-4 bg-light-gray-neko 100 justify-around z-10 sticky top-0 left-0 right-0">
 			<li className="min-w-[80px]">
 				{pageCurrentNumber - 1 !== 0 && (
 					<Link
 						href={{
 							pathname: pathNameNextPrevious('previous')
 						}}
-						className="text-purple-neko-900"
+						className="text-purple-neko-900 hover:opacity-50"
 					>
-						Previous Page
+						⬅ Previous Page
 					</Link>
 				)}
 			</li>
 			<li className="min-w-[80px]">
 				<Link
 					href={{ pathname: pathNameNextPrevious('next') }}
-					className=" text-purple-neko-900 font-bold"
+					className=" text-purple-neko-900 font-bold hover:opacity-50"
 				>
-					Next Page
+					Next Page ➡
 				</Link>
 			</li>
 		</ul>

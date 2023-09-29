@@ -27,6 +27,17 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 	};
 }
 
+export async function generateStaticParams() {
+	const data = await fetchService.getFetchData<
+		{
+			category_id: string;
+			name: string;
+		}[]
+	>('/coins/categories/list');
+	const paths = data.map(item => ({ categoryPages: [item.category_id] }));
+	return paths;
+}
+
 export default async function TablePages({ params }: Props) {
 	const [categoryPage, id] = params.categoryPages;
 	const queryUrl = convertFilterQueryString(

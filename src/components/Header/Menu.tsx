@@ -21,7 +21,7 @@ const Menu = () => {
 				{MenuOptions.map((item, index) => {
 					let route = hostname + '/' + item.path;
 					if (item.path !== 'portfolio') {
-						route = hostname + '/page/' + item.path + '/1';
+						route = hostname + '/page/' + item.path;
 					}
 
 					return (

@@ -38,3 +38,8 @@ export type CurrencyItem = {
 export type searchType = {
 	coins: CurrencyItem[];
 };
+
+export type CategoryProps = {
+	params: { categoryPages: string[] };
+	searchParams?: { [key: string]: string | string[] | undefined };
+};
